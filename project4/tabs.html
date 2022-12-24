@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" numbers="IE=edge">
+    <meta name="viewport" numbers="width=device-width, initial-scale=1.0">
+    <title>Tabs</title>
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .container {
+            width: 500px;
+            padding-top: 16px;
+            margin: auto;
+        }
+
+        .tabs {
+            display: flex;
+            border: none;
+            height: 15%;
+            background-color: #ffb6c1;
+        }
+
+        .tabs>button {
+            flex-grow: 1;
+            height: 100%;
+            border: none;
+            background-color: #eee;
+            outline: none;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 1.125rem;
+        }
+
+        .tabs>button:nth-of-type(n+2) {
+            border-left: 1px solid black;
+        }
+
+        .numbers {
+            display: none;
+            text-align: center;
+            color: #0e0e0e;
+            background-color: #ffb6c1;
+            font-size: 1.25rem;
+            padding: 12px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="tabs">
+            <button onclick="insidetab(0)">Tab1</button>
+            <button onclick="insidetab(1)">Tab2</button>
+            <button onclick="insidetab(2)">Tab3</button>
+            <button onclick="insidetab(3)">Tab4</button>
+        </div>
+
+        <div class="numbers">
+            111 111 111 111 111 111 111 111 111 111 111 111 111 111
+            111 111 111 111 111 111 111 111 111 111 111 111 111 111
+            111 111 111 111 111 111 111 111 111 111 111 111 111 111
+            111 111 111 111 111 111 111 111 111 111 111 111 111 111
+            111 111 111 111 111 111 111 111 111 111 111 111 111 111
+            111 111 111 111 111 111 111 111 111 111 111 111 111 111
+            111 111 111 111 111 111 111 111 111 111 111 111 111 111
+            111 111 111 111 111 111 111 111 111 111 111 111 111 111
+            111 111 111 111 111 111 111 111 111 111 111 111 111 111
+            111 111 111 111 111 111 111 111 111 111 111 111 111 111
+            111 111 111 111 111 111 111 111 111 111 111 111 111 111
+        </div>
+        <div class="numbers">
+            222 222 222 222 222 222 222 222 222 222 222 222 222
+            222 222 222 222 222 222 222 222 222 222 222 222 222
+            222 222 222 222 222 222 222 222 222 222 222 222 222
+            222 222 222 222 222 222 222 222 222 222 222 222 222
+            222 222 222 222 222 222 222 222 222 222 222 222 222
+            222 222 222 222 222 222 222 222 222 222 222 222 222
+            222 222 222 222 222 222 222 222 222 222 222 222 222
+            222 222 222 222 222 222 222 222 222 222 222 222 222
+            222 222 222 222 222 222 222 222 222 222 222 222 222
+            222 222 222 222 222 222 222 222 222 222 222 222 222
+            222 222 222 222 222 222 222 222 222 222 222 222 222
+        </div>
+
+        <div class="numbers">
+            333 333 333 333 333 333 333 333 333 333 333 333 333
+            333 333 333 333 333 333 333 333 333 333 333 333 333
+            333 333 333 333 333 333 333 333 333 333 333 333 333
+            333 333 333 333 333 333 333 333 333 333 333 333 333
+            333 333 333 333 333 333 333 333 333 333 333 333 333
+            333 333 333 333 333 333 333 333 333 333 333 333 333
+            333 333 333 333 333 333 333 333 333 333 333 333 333
+            333 333 333 333 333 333 333 333 333 333 333 333 333
+            333 333 333 333 333 333 333 333 333 333 333 333 333
+            333 333 333 333 333 333 333 333 333 333 333 333 333
+            333 333 333 333 333 333 333 333 333 333 333 333 333
+        </div>
+
+        <div class="numbers">
+            444 444 444 444 444 444 444 444 444 444 444 444 444
+            444 444 444 444 444 444 444 444 444 444 444 444 444
+            444 444 444 444 444 444 444 444 444 444 444 444 444
+            444 444 444 444 444 444 444 444 444 444 444 444 444
+            444 444 444 444 444 444 444 444 444 444 444 444 444
+            444 444 444 444 444 444 444 444 444 444 444 444 444
+            444 444 444 444 444 444 444 444 444 444 444 444 444
+            444 444 444 444 444 444 444 444 444 444 444 444 444
+            444 444 444 444 444 444 444 444 444 444 444 444 444
+            444 444 444 444 444 444 444 444 444 444 444 444 444
+            444 444 444 444 444 444 444 444 444 444 444 444 444
+        </div>
+
+        <script>
+            var tabButtons = document.querySelectorAll(".tabs>button");
+            var numbers = document.querySelectorAll(".numbers");
+
+            tabButtons[0].click();
+
+            function insidetab(indexnumber) {
+                tabButtons.forEach((btn) => {
+                    if (btn === tabButtons[indexnumber]) {
+                        btn.style.backgroundColor = "#ffb6c1";
+                        btn.style.color = "black";
+                    } else {
+                        btn.style.backgroundColor = "";
+                        btn.style.color = "";
+                    }
+                });
+
+                numbers.forEach((number) => {
+                    number.style.display = btn === tabButtons[indexnumber] ? "block" : "none";
+                });
+            }
+
+        </script>
+</body>
+
+</html>

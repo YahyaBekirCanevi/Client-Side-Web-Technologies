@@ -1,0 +1,21 @@
+* {
+    color: black;
+}
+
+.center {
+    background-color: rgba(128, 128, 128, 0.273);
+}
+
+.output {
+    background-color: rgb(77, 160, 255);
+    border: black solid 5px;
+}
+
+.calculator-grid>button {
+    border: none;
+    background-color: rgb(192, 192, 192);
+}
+
+#equals {
+    background-color: rgb(77, 160, 255);
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+        integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="common.css" rel="stylesheet" />
+    <link href="light.css" rel="stylesheet" id="theme-css" />
+    <script src="calc.js" defer></script>
+</head>
+
+<body>
+    <div class="center">
+        <div class="top-bar">
+            <p>Calculator</p>
+            <topbar-actions></topbar-actions>
+        </div>
+        <div class="calculator-grid">
+            <div class="output">
+                <div id="pre-operand"></div>
+                <div id="cur-operand">0</div>
+            </div>
+            <button class="number">7</button>
+            <button class="number">8</button>
+            <button class="number">9</button>
+            <button class="operand">/</button>
+            <button class="number">4</button>
+            <button class="number">5</button>
+            <button class="number">6</button>
+            <button class="operand">*</button>
+            <button class="number">1</button>
+            <button class="number">2</button>
+            <button class="number">3</button>
+            <button class="operand">-</button>
+            <button class="number">0</button>
+            <button id="clear">C</button>
+            <button id="equals">=</button>
+            <button class="operand">+</button>
+        </div>
+    </div>
+</body>
+
+</html>
