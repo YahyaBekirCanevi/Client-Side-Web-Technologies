@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title> Cards </title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .container {
+            background-color: #eee;
+            margin: auto;
+            width: 75%;
+            padding: 25px 0px 60px 0px;
+        }
+
+        .flexcontainer {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .header {
+            text-align: center;
+            padding: 10px 0px 10px 0px;
+        }
+
+        .card {
+            background-color: white;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 6px 8px 8px #00000088;
+            width: 45%;
+            height: 290px;
+        }
+
+        .mins-container {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 8px;
+            border-radius: 30px;
+            background-color: #eee;
+        }
+
+        .access {
+            float: left;
+            padding-right: 4px;
+            font-size: medium;
+        }
+
+        .minutes {
+            float: right;
+            font-size: medium;
+        }
+
+        .image {
+            border-radius: 8px 8px 0px 0px;
+            width: 100%;
+            height: 230px;
+        }
+
+        .footer {
+            margin: 6px 12px 6px 12px;
+        }
+
+        .text {
+            float: left;
+        }
+
+        .subheader2 {
+            color: #888;
+        }
+
+        .details {
+            float: right;
+            color: #2243FF;
+            border: #2243FF solid 0.6px;
+            background-color: #f5f9ff;
+            border-radius: 8px;
+            margin: 3px 4px 0px 4px;
+            padding: 0px 6px 0px 6px;
+            height: 30px;
+        }
+
+        .details:hover {
+            color: white;
+            border: none;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="header">Recipes</h1>
+        <!-- header -->
+        <div class="flexcontainer">
+            <div class="card">
+                <div class="mins-container">
+                    <i class="material-icons access">access_time</i>
+                    <p class="minutes">25 MINS</p>
+                </div>
+                <img class="image" src="stew.jpg" alt="An Image of Stew">
+                <div class="footer">
+                    <div class="text">
+                        <h3 class="subheader">5 Bean Chill Stew</h3>
+                        <h4 class="subheader2">Recipe by Mehmet</h4>
+                    </div>
+                    <button class="details">Details</button>
+                </div>
+            </div>
+            <!-- card -->
+            <div class="card">
+                <div class="mins-container">
+                    <i class="material-icons access">access_time</i>
+                    <p class="minutes">40 MINS</p>
+                </div>
+                <img class="image" src="curry.jpg" alt="An Image of Curry">
+                <div class="footer">
+                    <div class="text">
+                        <h3 class="subheader">Tofu Curry</h3>
+                        <h4 class="subheader2">Recipe by Ayşe</h4>
+                    </div>
+                    <button class="details">Details</button>
+                </div>
+            </div>
+            <!-- card -->
+        </div>
+    </div>
+</body>
+
+</html>
