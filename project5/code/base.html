@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="model/modal.css">
+    <title>Document</title>
+    <link href="base.css" rel="stylesheet">
+    <link href="custom-elements/custom-navigation.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row my-3">
+            <img id="esogu-logo" class="col-md-auto" src="esogu-logo.png" alt="Esogü Logo">
+            <div class="col my-4">
+                <span class="bold title">Eskişehir Osmangazi Üniversitesi</span>
+                <br>
+                Öğrenci Yönetim Sistemi
+            </div>
+            <div class="col exit">
+                <div class="m-0">Merhaba, John Doe</div>
+                <div><button class="btn btn-secondary">Çıkış Yap</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid second-bar">
+        <div class="title bold">Öğrenci Listesi</div>
+        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#studentAdd">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus"
+                viewBox="0 0 16 16">
+                <path
+                    d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                <path fill-rule="evenodd"
+                    d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+            </svg>
+        </button>
+        <add-update-student></add-update-student>
+    </div>
+    <div class="container-fluid text-center table">
+        <div class="row table-header">
+            <div class="col">İsim Soyisim</div>
+            <div class="col number">Öğrenci Numarası</div>
+            <div class="col dept">Bölüm</div>
+            <div class="col">Yetkiler</div>
+        </div>
+        <custom-navigation>
+            <div class="row table-footer">
+                <div class="col pageNumber">
+                    <span class="bold">25</span> öğrenciden
+                    <span class="bold">1-8</span> arası gösteriliyor
+                </div>
+                <div class="col paginationNumbers"></div>
+                <div class="col pageCounter">
+                    <div>5</div>
+                    <div>8</div>
+                    <div>10</div>
+                </div>
+            </div>
+        </custom-navigation>
+    </div>
+
+    <!-- scripts -->
+    <script src="async/students.js"></script>
+    <script src="custom-elements/custom-row.js"></script>
+    <script src="custom-elements/custom-navigation.js"></script>
+    <script src="model/model.js"></script>
+    <script src="model/studentDelete.js"></script>
+    <script src="model/studentAddUpdate.js"></script>
+</body>
+
+</html>
