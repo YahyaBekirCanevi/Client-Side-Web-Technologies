@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>YKS Score Calculator</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            text-align: center;
+            align-items: center;
+        }
+
+        p {
+            margin: 0px;
+        }
+
+        body {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .firstColumn,
+        .secondColumn {
+            width: 50%;
+        }
+
+        .firstColumn,
+        .space {
+            padding: 20px;
+        }
+
+        @media screen and (max-width: 992px) {
+            body {
+                display: block;
+            }
+
+            .firstColumn,
+            .secondColumn {
+                width: 100%;
+            }
+        }
+
+        .card {
+            background-color: white;
+            display: grid;
+            width: 100%;
+            grid-template-columns: repeat(1, 1fr);
+            box-shadow: 0px 0px 10px 10px rgb(236, 236, 236);
+            border-radius: 10px;
+        }
+
+        .header {
+            font-size: 32px;
+            padding-top: 12px;
+        }
+
+        .bold {
+            font-weight: 700;
+        }
+
+        .header2 {
+            text-align: start;
+            color: grey;
+            margin: 0px;
+            font-size: 24px;
+            font-weight: 600;
+            padding: 0px 12px;
+        }
+
+        .subject {
+            padding: 0px 16px;
+        }
+
+        .subject-body {
+            display: flex;
+            padding-top: 10px;
+            background-color: white;
+        }
+
+        .subject-body>div>input,
+        .subject-body>input {
+            width: 80px;
+            height: 40px;
+            margin: 8px;
+            border-radius: 10px;
+            border: 1px solid grey;
+            box-shadow: 0 4px rgba(128, 128, 128, .5);
+        }
+
+        .net {
+            width: 80px;
+            font-weight: 600;
+        }
+
+        .relative {
+            position: relative;
+        }
+
+        .icon_absolute {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+        }
+
+        .subject-title {
+            flex-grow: 1;
+            text-align: start;
+            align-items: start;
+            padding-left: 10px;
+            font-size: 20px;
+        }
+
+        .question-text {
+            color: blue;
+            font-size: 14px;
+        }
+
+        .header_icons {
+            display: flex;
+            width: 100%;
+            position: relative;
+            padding: 0px 16px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .header_icons>*:nth-child(n+2) {
+            width: 80px;
+            margin: 8px;
+        }
+
+        .header_icons>*:last-child {
+            margin: 0px;
+        }
+
+        .flex_grow {
+            flex-grow: 1;
+        }
+
+        .checkbox_parent {
+            padding: 0px 16px;
+        }
+
+        .checkbox {
+            font-weight: 600;
+            display: flex;
+            text-align: center;
+            align-items: center;
+        }
+
+        .checkbox>input {
+            margin: 16px;
+            width: 24px;
+            height: 24px;
+        }
+
+        hr {
+            border: 1px solid rgb(132, 132, 132);
+            margin: 6px 0px 6px 0px;
+        }
+
+        .table {
+            padding: 0px 16px;
+        }
+
+        .table>hr {
+            border: 0.6px solid rgb(176, 176, 176);
+        }
+
+        .tableHeader,
+        .tableData {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .button-card {
+            display: flex;
+        }
+
+        .button-card>button {
+            margin: 8px 16px;
+        }
+
+        .button1 {
+            background-color: rgb(255, 0, 58);
+            color: white;
+        }
+
+        .button2 {
+            background-color: white;
+            color: rgb(255, 0, 58);
+        }
+
+        .button1,
+        .button2 {
+            border-color: rgb(255, 0, 58);
+            flex-grow: 1;
+            padding: 10px 0px;
+            border-radius: 10px;
+        }
+
+        .button1:hover,
+        .button2:hover {
+            background-color: rgb(153, 79, 96);
+            border-color: rgb(153, 79, 96);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="firstColumn">
+        <div class="card">
+            <p class="header"><span class="bold">AYT</span> Puanı Hesaplama</p>
+            <header-icons></header-icons>
+            <p class="header2">Türk Dili ve Edebiyatı ve Sosyal Bilimler-1 Testi</p>
+            <subject-row group="SÖZ" name="Türk Dili ve Edebiyatı" q_amount="24"></subject-row>
+            <subject-row group="SÖZ" name="Tarih-1" q_amount="10"></subject-row>
+            <subject-row group="SÖZ" name="Coğrafya-1" q_amount="6"></subject-row>
+            <br>
+            <br>
+            <p class="header2">Sosyal Bilimler-2 Testi</p>
+            <subject-row group="SÖZ" name="Tarih-2" q_amount="11"></subject-row>
+            <subject-row group="SÖZ" name="Coğrafya-2" q_amount="11"></subject-row>
+            <subject-row group="SÖZ" name="Felsefe Grubu" q_amount="12"></subject-row>
+            <subject-row group="SÖZ" name="Din Kültürü ve Ahlak Bilgisi / Ek Felsefe Grubu" q_amount="6"></subject-row>
+            <br>
+            <br>
+            <p class="header2">Matematik Testi</p>
+            <subject-row group="SAY" name="Matematik" q_amount="40"></subject-row>
+            <br>
+            <br>
+            <p class="header2">Fen Bilimleri Testi</p>
+            <subject-row group="SAY" name="Fizik" q_amount="14"></subject-row>
+            <subject-row group="SAY" name="Kimya" q_amount="13"></subject-row>
+            <subject-row group="SAY" name="Biyoloji" q_amount="13"></subject-row>
+        </div>
+    </div>
+
+    <div class="secondColumn">
+        <div class="space">
+            <div class="card">
+                <p class="header"><span class="bold">TYT</span> Puanı Hesaplama</p>
+                <header-icons></header-icons>
+                <subject-row group="TYT" name="Türkçe" q_amount="40"></subject-row>
+                <subject-row group="TYT" name="Sosyal Bilimler" q_amount="20"></subject-row>
+                <subject-row group="TYT" name="Temel Matematik" q_amount="40"></subject-row>
+                <subject-row group="TYT" name="Fen Bilimleri" q_amount="20"></subject-row>
+            </div>
+        </div>
+
+        <div class="space">
+            <div class="card">
+                <p class="header"><span class="bold">Ortaöğretim</span> Başarı Puanı</p>
+                <obp-element></obp-element>
+                <div class="checkbox_parent">
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkbox">
+                        <p>Geçen Sene Bir Bölüme Yerleştim</p>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+        <div class="space">
+            <div class="card">
+                <p class="header bold">SONUÇLAR</p>
+                <div class="table">
+                    <div class="tableHeader">
+                        <p>Puan Türü</p>
+                        <p>Ham Puan</p>
+                        <p>Yerleştirme Puanı</p>
+                    </div>
+                    <hr>
+                    <div class="tableData">
+                        <p>TYT</p>
+                        <p id="tyt_ham">-</p>
+                        <p id="tyt_yer">-</p>
+                    </div>
+                    <hr>
+                    <div class="tableData">
+                        <p>SAY</p>
+                        <p id="say_ham">-</p>
+                        <p id="say_yer">-</p>
+                    </div>
+                    <hr>
+                    <div class="tableData">
+                        <p>EA</p>
+                        <p id="ea_ham">-</p>
+                        <p id="ea_yer">-</p>
+                    </div>
+                    <hr>
+                    <div class="tableData">
+                        <p>SÖZ</p>
+                        <p id="söz_ham">-</p>
+                        <p id="söz_yer">-</p>
+                    </div>
+
+                </div>
+                <div class="button-card">
+                    <button class="btn btn-primary button1" type="submit" onclick="hesapla();">Hesapla</button>
+                    <button class="btn btn-primary button2" type="submit" onclick="temizle();">Temizle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        {
+            function hesapla() {
+                let obp = document.getElementById("obp").value;
+                let checkbox = document.getElementById("checkbox").checked;
+                ////////////////////////////////////////////////////////////
+                let tyt = 0;
+                document.querySelectorAll(".TYT").forEach(el => {
+                    let net = el.querySelector(".net");
+                    tyt += parseInt(net.innerHTML);
+                });
+                let tyt_ham = tyt * 5;
+                let tyt_yer = (obp * (checkbox ? 0.3 : 0.6)) + tyt_ham;
+                document.getElementById("tyt_ham").innerText = tyt_ham;
+                document.getElementById("tyt_yer").innerText = tyt_yer;
+                ////////////////////////////////////////////////////////////
+                let say = 0;
+                document.querySelectorAll(".SAY").forEach(el => {
+                    let net = el.querySelector(".net");
+                    say += parseInt(net.innerHTML);
+                });
+                let say_ham = say * 6.25;
+                say_ham = (say_ham * 0.6) + (tyt_ham * 0.4)
+                let say_yer = (obp * (checkbox ? 0.3 : 0.6)) + say_ham;
+                document.getElementById("say_ham").innerText = say_ham;
+                document.getElementById("say_yer").innerText = say_yer;
+                ////////////////////////////////////////////////////////////
+                let soz = 0;
+                document.querySelectorAll(".SÖZ").forEach(el => {
+                    let net = el.querySelector(".net");
+                    soz += parseInt(net.innerHTML);
+                });
+                let soz_ham = soz * 6.25;
+                soz_ham = (soz_ham * 0.6) + (tyt_ham * 0.4)
+                let soz_yer = (obp * (checkbox ? 0.3 : 0.6)) + soz_ham;
+                document.getElementById("söz_ham").innerText = soz_ham;
+                document.getElementById("söz_yer").innerText = soz_yer;
+                ////////////////////////////////////////////////////////////
+                //<subject-row group="SAY" name="Matematik"
+                let matNet = 0;
+                document.querySelectorAll("subject-row").forEach(el => {
+                    if (el.name === "Matematik") {
+                        matNet = parseInt(el.querySelector(".net").innerHTML);
+                    }
+                })
+                let ea_ham = (soz_ham + (matNet * 12.5)) * 0.5;
+                let ea_yer = (obp * (checkbox ? 0.3 : 0.6)) + ea_ham;
+                document.getElementById("ea_ham").innerText = ea_ham;
+                document.getElementById("ea_yer").innerText = ea_yer;
+                ////////////////////////////////////////////////////////////
+            }
+            function temizle() {
+                document.querySelectorAll("input").forEach(el => {
+                    el.value = 0;
+                });
+                document.getElementById("checkbox").checked = false;
+                document.querySelectorAll(".tableData").forEach(el => {
+                    let array = Array.from(el.querySelectorAll("p"));
+                    for (let i = 1; i < array.length; i++) {
+                        array[i].innerHTML = "-";
+                    }
+                });
+                document.querySelectorAll(".net").forEach(el => {
+                    el.innerHTML = "-";
+                });
+            }
+            class SubjectRow extends HTMLElement {
+                connectedCallback() {
+                    this.correct = 0;
+                    this.incorrect = 0;
+                    this.net = "-";
+                    this.name = this.getAttribute('name');
+                    this.group = this.getAttribute('group');
+                    this.q_amount = this.getAttribute('q_amount');
+                    this.innerHTML =
+                        `<div class="subject ` + this.group + `">
+                        <div class="subject-body">
+                            <div class="subject-title">` + this.name + `</br><span class="question-text">` + this.q_amount + ` soru</span></div>
+                            <div class="relative">
+                                <input type="text" name="correct" id="correct" value="0">
+                                <div class="icon_absolute">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-check"
+                                        style="color: green;" viewBox="0 0 16 16">
+                                        <path
+                                            d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <input type="text" name="incorrect" id="incorrect" value="0">
+                                <div class="icon_absolute">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x"
+                                        style="color: red;" viewBox="0 0 16 16">
+                                        <path
+                                            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="net">` + this.net + `</div>
+                        </div>
+                        <hr>
+                    </div>`
+                    const net_value = this.querySelector(".net");
+                    const correct_input = this.querySelector("#correct");
+                    const incorrect_input = this.querySelector("#incorrect");
+                    correct_input.addEventListener("change", (event) => {
+                        if (isNaN(correct_input.value)) {
+                            alert(`Please enter a number (` + this.name + `)`);
+                            return;
+                        }
+                        this.correct = correct_input.value;
+                        this.incorrect = parseInt(this.q_amount) - parseInt(this.correct);
+                        this.net = this.correct - this.incorrect;
+                        if (this.incorrect > this.q_amount || (parseInt(this.correct) + parseInt(this.incorrect)) > this.q_amount || this.correct < 0 || this.incorrect < 0) {
+                            alert(`Check numbers in (` + this.name + `)! It has only ` + this.q_amount + ` questions`);
+                            return;
+                        }
+                        correct_input.setAttribute(`value`, this.correct);
+                        incorrect_input.setAttribute(`value`, this.incorrect);
+                        net_value.innerHTML = this.net;
+                    });
+                    incorrect_input.addEventListener("change", (event) => {
+                        if (isNaN(incorrect_input.value)) {
+                            alert(`Please enter a number (` + this.name + `)`);
+                            return;
+                        }
+                        this.incorrect = incorrect_input.value;
+                        this.correct = parseInt(this.q_amount) - parseInt(this.incorrect);
+                        this.net = this.correct - this.incorrect;
+                        if (this.incorrect > this.q_amount || (parseInt(this.correct) + parseInt(this.incorrect)) > this.q_amount || this.correct < 0 || this.incorrect < 0) {
+                            alert(`Check numbers in (` + this.name + `)! It has only ` + this.q_amount + ` questions`);
+                            return;
+                        }
+                        incorrect_input.setAttribute(`value`, this.incorrect);
+                        correct_input.setAttribute(`value`, this.correct);
+                        net_value.innerHTML = this.net;
+                    });
+                }
+            }
+            class OBPElement extends HTMLElement {
+                connectedCallback() {
+                    this.name = this.getAttribute('name');
+                    this.innerHTML =
+                        `<div class="subject">
+                        <div class="subject-body">
+                            <div class="subject-title">Diploma Notu</div>
+                            <input type="text" name="not" id="not" value="0">
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="subject">
+                        <div class="subject-body">
+                            <div class="subject-title">OBP</div>
+                            <input type="text" name="obp" id="obp" value="0" readonly>
+                        </div>
+                        <hr>
+                    </div>`
+                    const not_input = this.querySelector("#not");
+                    const obp_input = this.querySelector("#obp");
+                    not_input.addEventListener("change", (event) => {
+                        if (isNaN(not_input.value)) {
+                            alert(`Please enter a number (Diploma Notu)`);
+                            return;
+                        }
+                        if (not_input.value > 100 || not_input.value < 0) {
+                            alert(`Check number in (` + this.name + `)! It is between 0 and 100.`);
+                            return;
+                        }
+                        not_input.setAttribute(`value`, not_input.value);
+                        obp_input.setAttribute(`value`, not_input.value * 5);
+                    });
+                }
+            }
+
+            class HeaderIcons extends HTMLElement {
+                connectedCallback() {
+                    this.innerHTML = `<div class="header_icons">
+                        <div class="flex_grow"> </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-check"
+                            style="color: black;" viewBox="0 0 16 16">
+                            <path
+                                d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-x"
+                            style="color: black;" viewBox="0 0 16 16">
+                            <path
+                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                        <p>Net</p>
+                    </div>`
+                }
+            }
+
+            customElements.define('subject-row', SubjectRow);
+            customElements.define('obp-element', OBPElement);
+            customElements.define('header-icons', HeaderIcons);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Alef", "sans-serif";
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background-size: 100% 100%;
+            background-image: url("./levander.jpg");
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(255, 255, 255);
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .timertext {
+            width: 100px;
+            height: 80px;
+            padding-top: 20px;
+            margin-right: 20px;
+            font-size: 40px;
+            font-weight: 600;
+            background-color: rgba(0, 0, 200, 0.3);
+            text-align: center;
+            align-items: center;
+        }
+
+        .subtext {
+            width: 100px;
+            height: 40px;
+            font-size: 16px;
+            padding: 12px 0px;
+            background-color: rgba(0, 0, 200, 0.8);
+            text-align: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        #daycycle {
+            width: 60px;
+            background-color: rgba(2, 151, 2, 0.8);
+        }
+
+        .divcolor {
+            background-color: rgba(0, 0, 0, 0);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="center">
+        <div class="header">DIGITAL CLOCK</div>
+        <div class="container">
+            <div>
+                <p class="divcolor timertext"></p>
+            </div>
+
+            <div>
+                <p class="timertext" id="hours"></p>
+                <div class="subtext">HOURS</div>
+            </div>
+
+            <div>
+                <p class="timertext" id="minutes"></p>
+                <div class="subtext">MINUTES</div>
+            </div>
+            <div>
+                <p class="timertext" id="seconds"></p>
+                <div class="subtext">SECONDS</div>
+            </div>
+
+            <div>
+                <p class="divcolor timertext"></p>
+                <div class="subtext" id="daycycle">PM</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let hours = document.getElementById("hours");
+        let cycle = document.getElementById("daycycle");
+        let minutes = document.getElementById("minutes");
+        let seconds = document.getElementById("seconds");
+
+        setInterval(() => {
+            let today = new Date();
+            cycle.innerHTML = today.getHours() > 12 ? "PM" : "AM";
+            hours.innerHTML = today.getHours() % 12;
+            minutes.innerHTML = today.getMinutes();
+            seconds.innerHTML = today.getSeconds();
+        }, 1000);
+    </script>
+</body>
+
+</html>
