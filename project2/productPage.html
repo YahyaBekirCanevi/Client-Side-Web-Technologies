@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Product Page</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            display: grid;
+            width: 100%;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .leftside {
+            background-color: white;
+        }
+
+        .headphone {
+            width: 80%;
+            padding: 0px 10px;
+            padding-top: 10px;
+            display: block;
+            margin: auto;
+        }
+
+        .rightside {
+            background-color: rgb(237, 237, 237);
+            padding: 12px;
+        }
+
+        h1,
+        h3,
+        p {
+            margin: 0;
+        }
+
+        .header {
+            font-size: 22px;
+        }
+
+        .smalltext {
+            font-size: 20px;
+        }
+
+        .smalltext2 {
+            text-align: right;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .bluetext {
+            color: rgb(60, 105, 255);
+        }
+
+        .price {
+            float: left;
+        }
+
+        .stars {
+            float: right;
+        }
+
+        .inline {
+            display: inline-block;
+        }
+
+        .star {
+            display: inline-block;
+        }
+
+        .infoGrid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .infoGrid>.item {
+            padding: 10px 20px;
+        }
+
+
+        .whitebar {
+            display: inline-block;
+            background-color: white;
+            border-radius: 12px;
+            padding: 2px 8px;
+            margin: 8px 0px;
+        }
+
+        .greenBox {
+            margin: 12px 0px;
+            padding: 4px 8px;
+            color: white;
+            background-color: green;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .qmark {
+            background-color: rgb(185, 185, 185);
+            border-radius: 50%;
+            margin-left: 6px;
+            padding: 0px 6px;
+        }
+
+        .orangeBox {
+            color: white;
+            background-color: orange;
+            border-radius: 50%;
+            margin-left: 6px;
+            padding: 3px 8px;
+        }
+
+        .greenText {
+            color: green;
+        }
+
+        .amount {
+            display: inline-flex;
+            background-color: white;
+            justify-content: center;
+            align-items: center;
+            border-radius: 16px;
+        }
+
+        .excl {
+            height: 60px;
+            width: 60px;
+        }
+
+        .grayExcl {
+            background-color: rgb(179, 179, 179);
+            font-weight: 600;
+            font-size: 32px;
+            text-align: center;
+            width: 40px;
+        }
+
+        .grayExcl:nth-of-type(odd) {
+            border-radius: 16px 0px 0px 16px;
+        }
+
+        .grayExcl:nth-of-type(even) {
+            border-radius: 0px 16px 16px 0px;
+        }
+
+        .sepet {
+            background-color: rgb(255, 123, 0);
+            color: white;
+            border-radius: 12px;
+            text-align: center;
+            display: inline;
+            padding: 18px 30px;
+            font-size: 20px;
+        }
+
+        .konum {
+            background-color: rgba(255, 210, 169, 0.38);
+            color: rgb(255, 123, 0);
+            border-radius: 6px;
+            text-align: center;
+            display: inline;
+            padding: 8px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .amountExcl {
+            display: inline;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .purpleBox {
+            background-color: rgba(175, 124, 222, 0.165);
+            border: 2px solid rgba(91, 33, 145, 0.675);
+            margin-top: 10px;
+            border-radius: 12px;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .white {
+            background-color: white;
+            font-weight: 600;
+            margin-left: 10px;
+            border-radius: 10px;
+            font-size: 15px;
+            padding: 2px 8px;
+        }
+
+        .action {
+            display: inline-block;
+            padding: 16px 30px;
+            font-size: 20px;
+        }
+
+        .teslimat {
+            background-color: rgba(255, 255, 255, 0.529);
+            border-radius: 14px;
+            display: block;
+            padding-top: 10px;
+            padding-bottom: 54px;
+        }
+
+        .teslimatCard {
+            margin: 10px;
+            padding: 10px;
+            display: block;
+        }
+
+        .cardLeft {
+            float: left;
+        }
+
+        .cardRight {
+            float: right;
+        }
+
+        .boldtext {
+            font-weight: 600;
+            font-size: 20px;
+        }
+
+        .minitext {
+            font-size: 12px;
+        }
+
+        .centerImage {
+            margin-top: 12px;
+        }
+
+        .orangetext {
+            color: rgb(255, 123, 0);
+        }
+
+        .seller-header {
+            font-weight: 600;
+            font-size: 22px;
+            padding: 16px 0px;
+        }
+
+        .seller-q {
+            float: right;
+            padding: 0px 10px;
+        }
+
+        .seller {
+            background-color: rgba(255, 255, 255, 0.529);
+            border-radius: 14px;
+            display: flex;
+            padding: 10px 16px;
+            padding-bottom: 20px;
+        }
+
+        .flex-grow {
+            flex-grow: 1;
+        }
+
+        .flex-shrink {
+            flex-shrink: 1;
+        }
+
+        .lastButton {
+            padding-top: 20px;
+            padding-right: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 100%;
+        }
+
+        .fiyat {
+            font-size: 20px;
+            font-weight: 600;
+            padding-right: 20px;
+        }
+
+        .sepet2 {
+            background-color: rgb(255, 123, 0);
+            color: white;
+            border-radius: 12px;
+            text-align: center;
+            padding: 12px 16px;
+            font-size: 20px;
+        }
+
+        .overflowtext {
+            text-overflow: ellipsis;
+        }
+
+        .space {
+            padding: 20px 0px;
+        }
+
+        @media (max-width: 992px) {
+            body {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .center {
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid leftside">
+        <img class="headphone" src="P2-img/kulaklik.jfif" alt="Kulaklık Resmi">
+        <div class="infoGrid">
+            <div class="item">
+                <hr>
+                <p><span class="font-weight-bold">Çift Telefon Desteği</span> Yok</p>
+                <p><span class="font-weight-bold">Suya & Tere Dayanıklı</span> Hayır</p>
+                <p><span class="font-weight-bold">Kullanım Tipi</span> Kulakiçi</p>
+            </div>
+            <div class="item">
+                <hr>
+                <p><span class="font-weight-bold">Bluetooth Versiyon</span> 5.0</p>
+                <p><span class="font-weight-bold">Aktif Gürültü Önleme(ANC)</span> Yok</p>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid rightside">
+        <h3 class="header">TWS i12 Bluetooth 5.0 Kulaklık - Şarj Üniteli</h3>
+        <h3 class="header bluetext">TWS</h3>
+        <div>
+            <h1 class="price mt-3">115,00 <span class="smalltext">TL</span></h1>
+            <div class="stars">
+                <h3 class="inline">3,5</h3>
+                <div class="star">
+                    <i class="fa fa-star" style="color: rgb(255, 170, 0);"></i>
+                    <i class="fa fa-star" style="color: rgb(255, 170, 0);"></i>
+                    <i class="fa fa-star" style="color: rgb(255, 170, 0);"></i>
+                    <i class="fa fa-star" style="color: rgb(255, 170, 0);"></i>
+                    <i class="fa fa-star" style="color: gray;"></i>
+                </div>
+                <p class="smalltext2">7469 Değerlendirme</p>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div>19 TL x 6 aya varan <span class="font-weight-bold">Taksitle</span></div>
+        <div class="whitebar overflowtext">
+            <p>Satıcı<span class="bluetext font-weight-bold">: SFIT TEKNOLOJI ...</span>
+                | Puan <span class="greenBox"> 9.4 </span> <span class="qmark">?</span>
+                | Kampanyaları Gör <span class="orangeBox">3</span>
+            </p>
+        </div>
+        <div class="greenText font-weight-bold space">
+            Seçili Telefon Alana TWS i12 Bluetooth 5.0 Kulaklık %10 İndirimli!
+        </div>
+        <div class="center">
+            <div class="amount">
+                <p class="excl grayExcl">-</p>
+                <div class="excl amountExcl">
+                    <h5>1</h5>
+                    <h7>Adet</h7>
+                </div>
+                <p class="excl grayExcl">+</p>
+            </div>
+
+            <p class="sepet">
+                <i class="fa fa-shopping-cart"></i> Sepete Ekle
+            </p>
+        </div>
+        <div class="purpleBox">
+            <p class="flex-grow">Eski ürününü yenisi ile değiştirmek ister misin?</p>
+            <p class="flex-shrink">
+                <span class="qmark white">?</span>
+                <span class="qmark white">Faydalan</span>
+            </p>
+        </div>
+        <p class="actions">
+        <p class="action"><i class="fa fa-heart-o"></i> Beğen</p>
+        <p class="action"><i class="fa fa-bookmark-o"></i> Listeme Ekle</p>
+        <p class="action"><i class="fa fa-arrows-h"></i> Karşılaştır</p>
+        </p>
+        <hr>
+        <div class="teslimat">
+            <div class="teslimatCard">
+                <p class="cardLeft boldtext">Teslimat Seçenekleri</p>
+                <p class="cardRight konum"><i class="fa fa-map-marker"></i> Konum seç</p>
+            </div>
+            <br>
+            <div class="teslimatCard">
+                <div class="cardLeft boldtext">
+                    <p class="boldtext">Standart Teslimat</p>
+                    <p class="minitext">En geç 14 Ekim Cuma günü kargoda</p>
+                </div>
+                <img class="cardRight centerImage" src="P2-img/hepsijet.jpg" alt="Hepsi Jet resmi">
+            </div>
+        </div>
+        <br>
+        <div class="sellers">
+            <p class="seller-header">Diğer Satıcılar - <span class="orangetext">Tümü (2)</span>
+                <span class="qmark seller-q">?</span>
+            </p>
+            <div class="seller">
+                <div class="flex-grow">
+                    <div><span class="greenBox">9.7</span> <span class="bluetext font-weight-bold"> Torima</span></div>
+                    <div>
+                        <span class="font-weight-bold">21 saat 42 dakika</span>
+                        içinde sipariş verirsen yarın kargoda
+                    </div>
+                </div>
+                <div class="flex-shrink lastButton">
+                    <p class="fiyat">148.97 TL</p>
+                    <p class="sepet2">Sepete Ekle</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

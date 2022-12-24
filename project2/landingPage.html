@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .header {
+            height: 630px;
+            background: linear-gradient(rgb(40, 42, 53, 0.90), rgb(40, 42, 53,
+                        0.90)), url('P1-img/bg-img.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sub-header {
+            text-align: center;
+        }
+
+        .header-text-1 {
+            color: white;
+            font-size: 50px;
+            font-weight: 600;
+        }
+
+        .header-text-2 {
+            color: white;
+            font-size: 30px;
+            padding: 12px 0px 10px 0px;
+        }
+
+        .header-text-3 {
+            color: white;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .started-btn {
+            background-color: rgb(44, 150, 88);
+            border: none;
+            padding: 10px 50px;
+            border-radius: 30px;
+            font-weight: 600;
+            color: white;
+            margin-top: 30px;
+        }
+
+        .grid-view {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .card-class {
+            text-align: center;
+            background-color: white;
+        }
+
+        .card-title-text {
+            color: rgb(44, 150, 88);
+            font-size: 22px;
+            font-weight: 600;
+            padding: 20px 0px 10px 0px;
+        }
+
+        .card-content-text {
+            color: gray;
+            font-size: 16px;
+        }
+
+        .footer-1 {
+            color: white;
+            background-color: rgb(31, 35, 55);
+            padding: 30px 40px;
+
+        }
+
+        .how-it-works {
+            text-align: center;
+            font-size: 26px;
+            font-weight: 600;
+            padding-bottom: 45px;
+        }
+
+        .work-icon {
+            color: white;
+            width: 100px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .iconlayout {
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 40px;
+        }
+
+        .costlayout {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .svgicon {
+            display: block;
+            margin: auto;
+        }
+
+        .svgicon:nth-of-type(even) {
+            margin: 0 !important;
+            margin-bottom: 50px;
+            align-self: flex-start;
+
+        }
+
+        .textaligncenter {
+            padding-top: 25px;
+        }
+
+        .texticon {
+            margin-bottom: 50px;
+        }
+
+        .list {
+            text-align: start;
+        }
+
+        .cost-card {
+            margin: 20px 10px 0px 10px;
+        }
+
+        .list>div {
+            padding: 2px;
+        }
+
+        .minitext {
+            font-size: 20px;
+        }
+
+        .bi-check {
+            color: rgb(0, 128, 0);
+            background-color: rgba(39, 214, 100, 0.265);
+            border-radius: 30px;
+            padding: 2px 4px;
+        }
+
+        .real-footer {
+            background-color: rgb(205, 205, 205);
+            padding: 0;
+            margin: 0;
+        }
+
+        .bottompart {
+            text-align: center;
+            justify-content: center;
+            font-size: 18px;
+            padding: 6px;
+        }
+
+        @media (min-width: 0px) and (max-width: 768px) {
+            .started-btn {
+                width: 100%;
+            }
+
+            .header-text-1 {
+                font-size: 40px;
+            }
+
+            .header-text-2 {
+                font-size: 24px;
+            }
+
+            .header-text-3 {
+                font-size: 14px;
+            }
+
+            .grid-view {
+                grid-template-columns: repeat(1, 1fr);
+
+            }
+
+            .iconlayout {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .texticon {
+                display: none;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 992px) {
+            .grid-view {
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+            .texticon {
+                display: none;
+            }
+
+            .iconlayout {
+                grid-template-columns: repeat(2, 1fr 0fr);
+            }
+
+        }
+    </style>
+
+    <title>Landing Page</title>
+</head>
+
+<body>
+    <div class="container-fluid header">
+        <div class="sub-header mx-auto">
+            <h1 class="header-text-1">Create a Free Website</h1>
+            <h3 class="header-text-2">Everything you need right in the browser.</h3>
+            <h4 class="header-text-3">Build your own website. It is easy to use - try it!</h4>
+            <button type="button" class="btn btn-primary started-btn">Get started for free</button>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="grid-view">
+            <div class="card-class">
+                <div class="card-title-text">
+                    Website
+                </div>
+                <div class="card-content-text">
+                    Create your own website and share it with others
+                </div>
+            </div>
+            <div class="card-class">
+                <div class="card-title-text">
+                    Code Editor
+                </div>
+                <div class="card-content-text">
+                    Code directly in your browser
+                </div>
+            </div>
+            <div class="card-class">
+                <div class="card-title-text">
+                    File Manager
+                </div>
+                <div class="card-content-text">
+                    Start with ready-to-use designs and structures
+                </div>
+            </div>
+            <div class="card-class">
+                <div class="card-title-text">
+                    Playground
+                </div>
+                <div class="card-content-text">
+                    Upload and handle files in your browser
+                </div>
+            </div>
+            <div class="card-class">
+                <div class="card-title-text">
+                    Website
+                </div>
+                <div class="card-content-text">
+                    Learn, test, and go live with your space
+                </div>
+            </div>
+            <div class="card-class">
+                <div class="card-title-text">
+                    Website
+                </div>
+                <div class="card-content-text">
+                    Playground for HTML, CSS and JavaScript
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="container-fluid footer-1">
+        <div class="how-it-works">How it works</div>
+        <div class="grid-view iconlayout">
+            <div class="work-class">
+                <div class="work-icon svgicon">
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M52.5 7.5H7.5C5.42893 7.5 3.75 9.17893 3.75 11.25V48.75C3.75 50.8211 5.42893 52.5 7.5 52.5H52.5C54.5711 52.5 56.25 50.8211 56.25 48.75V11.25C56.25 9.17893 54.5711 7.5 52.5 7.5ZM7.5 3.75C3.35786 3.75 0 7.10786 0 11.25V48.75C0 52.8921 3.35786 56.25 7.5 56.25H52.5C56.6421 56.25 60 52.8921 60 48.75V11.25C60 7.10786 56.6421 3.75 52.5 3.75H7.5Z"
+                            fill="#96D4D4" />
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M56.25 22.5H3.75V18.75H56.25V22.5Z"
+                            fill="#96D4D4" />
+                        <path
+                            d="M11.25 13.125C11.25 14.1605 10.4105 15 9.375 15C8.33947 15 7.5 14.1605 7.5 13.125C7.5 12.0895 8.33947 11.25 9.375 11.25C10.4105 11.25 11.25 12.0895 11.25 13.125Z"
+                            fill="#96D4D4" />
+                        <path
+                            d="M16.875 13.125C16.875 14.1605 16.0355 15 15 15C13.9645 15 13.125 14.1605 13.125 13.125C13.125 12.0895 13.9645 11.25 15 11.25C16.0355 11.25 16.875 12.0895 16.875 13.125Z"
+                            fill="#96D4D4" />
+                        <path
+                            d="M22.5 13.125C22.5 14.1605 21.6605 15 20.625 15C19.5895 15 18.75 14.1605 18.75 13.125C18.75 12.0895 19.5895 11.25 20.625 11.25C21.6605 11.25 22.5 12.0895 22.5 13.125Z"
+                            fill="#96D4D4" />
+                    </svg>
+                </div>
+                <div class="work-content-text textaligncenter">
+                    1. Join and create a space
+                </div>
+            </div>
+            <div class="work-class">
+                <div class="work-icon svgicon texticon">
+                    <svg width="165" height="31" viewBox="0 0 165 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1 25.2422C1 25.2422 49.7635 32.8907 85.025 26.6731C120.286 20.4556 163.493 1.59024 163.493 1.59024"
+                            stroke="#D9DBE1" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 6" />
+                    </svg>
+                </div>
+            </div>
+            <div class="work-class">
+                <div class="work-icon svgicon">
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                            <path
+                                d="M18.75 3.75V33.75H3.75V3.75H18.75ZM3.75 0C2.75544 0 1.80161 0.395088 1.09835 1.09835C0.395088 1.80161 0 2.75544 0 3.75L0 33.75C0 34.7446 0.395088 35.6984 1.09835 36.4016C1.80161 37.1049 2.75544 37.5 3.75 37.5H18.75C19.7446 37.5 20.6984 37.1049 21.4016 36.4016C22.1049 35.6984 22.5 34.7446 22.5 33.75V3.75C22.5 2.75544 22.1049 1.80161 21.4016 1.09835C20.6984 0.395088 19.7446 0 18.75 0L3.75 0ZM52.5 7.5V26.25H33.75V7.5H52.5ZM33.75 3.75C32.7554 3.75 31.8016 4.14509 31.0984 4.84835C30.3951 5.55161 30 6.50544 30 7.5V26.25C30 27.2446 30.3951 28.1984 31.0984 28.9016C31.8016 29.6049 32.7554 30 33.75 30H52.5C53.4946 30 54.4484 29.6049 55.1517 28.9016C55.8549 28.1984 56.25 27.2446 56.25 26.25V7.5C56.25 6.50544 55.8549 5.55161 55.1517 4.84835C54.4484 4.14509 53.4946 3.75 52.5 3.75H33.75ZM18.75 48.75V56.25H11.25V48.75H18.75ZM11.25 45C10.2554 45 9.30161 45.3951 8.59835 46.0984C7.89509 46.8016 7.5 47.7554 7.5 48.75V56.25C7.5 57.2446 7.89509 58.1984 8.59835 58.9017C9.30161 59.6049 10.2554 60 11.25 60H18.75C19.7446 60 20.6984 59.6049 21.4016 58.9017C22.1049 58.1984 22.5 57.2446 22.5 56.25V48.75C22.5 47.7554 22.1049 46.8016 21.4016 46.0984C20.6984 45.3951 19.7446 45 18.75 45H11.25ZM56.25 41.25V48.75H33.75V41.25H56.25ZM33.75 37.5C32.7554 37.5 31.8016 37.8951 31.0984 38.5984C30.3951 39.3016 30 40.2554 30 41.25V48.75C30 49.7446 30.3951 50.6984 31.0984 51.4017C31.8016 52.1049 32.7554 52.5 33.75 52.5H56.25C57.2446 52.5 58.1984 52.1049 58.9017 51.4017C59.6049 50.6984 60 49.7446 60 48.75V41.25C60 40.2554 59.6049 39.3016 58.9017 38.5984C58.1984 37.8951 57.2446 37.5 56.25 37.5H33.75Z"
+                                fill="#FFC0C7" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0">
+                                <rect width="60" height="60" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="work-content-text textaligncenter">
+                    2. Choose a template - or start from scratch
+                </div>
+            </div>
+            <div class="work-class">
+
+                <div class="work-icon svgicon texticon">
+                    <svg width="165" height="28" viewBox="0 0 165 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1 2.84717C1 2.84717 49.7635 -1.80133 85.025 4.41622C120.286 10.6338 163.493 26.4991 163.493 26.4991"
+                            stroke="#D9DBE1" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 6" />
+                    </svg>
+
+                </div>
+
+            </div>
+            <div class="work-class">
+
+                <div class="work-icon svgicon">
+                    <svg width="45" height="60" viewBox="0 0 45 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M43.3525 11.4775L33.5225 1.64754C32.4677 0.592645 31.0369 7.8009e-06 29.5451 0H5.625C2.51836 0 0 2.51836 0 5.625V54.375C0 57.4816 2.51836 60 5.625 60H39.375C42.4816 60 45 57.4816 45 54.375V15.4549C45 13.9631 44.4074 12.5323 43.3525 11.4775ZM40.7009 14.1292C40.9411 14.3692 41.1111 14.6703 41.1925 15H30V3.80754C30.3297 3.88889 30.6308 4.05889 30.8708 4.29914L40.7009 14.1292ZM39.375 56.25H5.625C4.58941 56.25 3.75 55.4106 3.75 54.375V5.625C3.75 4.58941 4.58941 3.75 5.625 3.75H26.25V15.9375C26.25 17.4908 27.5092 18.75 29.0625 18.75H41.25V54.375C41.25 55.4106 40.4106 56.25 39.375 56.25ZM20.4526 48.3511L17.4142 47.469C17.3388 47.4471 17.2685 47.4106 17.2072 47.3616C17.1459 47.3125 17.0949 47.2519 17.0571 47.1831C17.0193 47.1143 16.9954 47.0388 16.9867 46.9607C16.9781 46.8827 16.9849 46.8038 17.0068 46.7284L23.8069 23.3063C23.8288 23.2309 23.8653 23.1605 23.9143 23.0993C23.9634 23.038 24.024 22.987 24.0928 22.9492C24.1616 22.9114 24.2371 22.8874 24.3152 22.8788C24.3932 22.8702 24.4721 22.877 24.5475 22.8989L27.5858 23.781C27.6612 23.8029 27.7315 23.8394 27.7928 23.8884C27.8541 23.9375 27.9051 23.9981 27.9429 24.0669C27.9807 24.1357 28.0046 24.2112 28.0133 24.2893C28.0219 24.3673 28.0151 24.4462 27.9932 24.5216L21.1932 47.9437C21.1714 48.0191 21.1348 48.0895 21.0858 48.1507C21.0367 48.212 20.9761 48.263 20.9073 48.3008C20.8385 48.3386 20.763 48.3626 20.685 48.3712C20.6069 48.3798 20.528 48.373 20.4526 48.3511ZM14.7754 42.7643L16.9424 40.4529C16.9971 40.3945 17.0396 40.3256 17.0672 40.2505C17.0949 40.1754 17.1072 40.0954 17.1033 40.0155C17.0995 39.9355 17.0796 39.8571 17.0449 39.7849C17.0102 39.7128 16.9613 39.6483 16.9012 39.5954L12.3896 35.625L16.9011 31.6546C16.9612 31.6017 17.0101 31.5372 17.0448 31.4651C17.0796 31.3929 17.0994 31.3145 17.1033 31.2345C17.1071 31.1546 17.0948 31.0746 17.0672 30.9995C17.0395 30.9243 16.997 30.8555 16.9423 30.7971L14.7752 28.4857C14.7216 28.4284 14.6571 28.3823 14.5856 28.3499C14.5141 28.3176 14.4369 28.2996 14.3585 28.2971C14.28 28.2945 14.2019 28.3075 14.1284 28.3352C14.055 28.3628 13.9877 28.4047 13.9304 28.4584L6.75117 35.1889C6.69155 35.2448 6.64403 35.3124 6.61154 35.3874C6.57906 35.4624 6.56229 35.5432 6.56229 35.6249C6.56229 35.7067 6.57906 35.7875 6.61154 35.8625C6.64403 35.9375 6.69155 36.005 6.75117 36.0609L13.9304 42.7915C13.9877 42.8452 14.055 42.8871 14.1284 42.9148C14.2019 42.9425 14.2801 42.9554 14.3585 42.9529C14.437 42.9504 14.5142 42.9324 14.5857 42.9001C14.6572 42.8677 14.7217 42.8216 14.7754 42.7643ZM31.0695 42.7915L38.2486 36.0609C38.3082 36.005 38.3557 35.9375 38.3882 35.8625C38.4207 35.7875 38.4375 35.7067 38.4375 35.6249C38.4375 35.5432 38.4207 35.4624 38.3882 35.3874C38.3557 35.3124 38.3082 35.2448 38.2486 35.1889L31.0695 28.4584C31.0122 28.4047 30.9449 28.3628 30.8715 28.3352C30.798 28.3075 30.7198 28.2945 30.6414 28.2971C30.5629 28.2996 30.4858 28.3176 30.4143 28.3499C30.3428 28.3823 30.2783 28.4284 30.2246 28.4857L28.0576 30.7971C28.0029 30.8555 27.9604 30.9244 27.9328 30.9995C27.9051 31.0746 27.8928 31.1546 27.8967 31.2345C27.9005 31.3145 27.9204 31.3929 27.9551 31.4651C27.9898 31.5372 28.0387 31.6017 28.0988 31.6546L32.6104 35.625L28.0988 39.5954C28.0386 39.6483 27.9898 39.7128 27.955 39.7849C27.9203 39.8571 27.9005 39.9355 27.8966 40.0154C27.8928 40.0954 27.9051 40.1754 27.9327 40.2505C27.9604 40.3257 28.0028 40.3945 28.0576 40.4529L30.2246 42.7643C30.2783 42.8216 30.3428 42.8677 30.4143 42.9C30.4858 42.9324 30.563 42.9503 30.6414 42.9529C30.7199 42.9554 30.798 42.9424 30.8715 42.9147C30.9449 42.8871 31.0122 42.8452 31.0695 42.7915Z"
+                            fill="#FFF4A3" />
+                    </svg>
+                </div>
+                <div class="work-content-text textaligncenter">
+                    3. Edit code directly in your browser
+                </div>
+            </div>
+            <div class="work-class">
+
+                <div class="work-icon svgicon texticon ">
+                    <svg width="165" height="31" viewBox="0 0 165 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1 25.2422C1 25.2422 49.7635 32.8907 85.025 26.6731C120.286 20.4556 163.493 1.59024 163.493 1.59024"
+                            stroke="#D9DBE1" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 6" />
+                    </svg>
+
+                </div>
+
+            </div>
+            <div class="work-class">
+
+                <div class="work-icon svgicon">
+                    <svg width="59" height="60" viewBox="0 0 59 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                            <path
+                                d="M29.0625 0.9375C13.0078 0.9375 0 13.9453 0 30C0 46.0547 13.0078 59.0625 29.0625 59.0625C45.1172 59.0625 58.125 46.0547 58.125 30C58.125 13.9453 45.1172 0.9375 29.0625 0.9375ZM25.3125 6.89062V8.21484C25.3125 9.60938 23.8477 10.5117 22.5938 9.89062L19.7812 8.48438C21.5273 7.73438 23.3789 7.20703 25.3125 6.89062ZM29.0625 50.2266V53.4375C16.1367 53.4375 5.625 42.9258 5.625 30C5.625 26.5898 6.375 23.3555 7.6875 20.4258C8.84766 22.1484 10.6406 24.8086 11.7422 26.4141C12.3516 27.3047 13.0547 28.125 13.8633 28.8398L13.957 28.9219C15.0703 29.9297 16.3242 30.7969 17.6602 31.4766C19.3008 32.2969 21.6914 33.6094 23.3789 34.5352C24.5742 35.1914 25.3125 36.4453 25.3125 37.8164V41.5664C25.3125 42.5625 25.7109 43.5117 26.4141 44.2148C28.1719 45.9844 29.2617 48.75 29.0625 50.2266ZM34.0664 52.8867L36.1055 47.3906C36.3398 46.7461 36.4922 46.0781 36.668 45.4102C36.7969 44.9414 37.043 44.5078 37.3945 44.1562L38.7188 42.832C39.75 41.8125 40.3242 40.418 40.3242 38.9648C40.3242 38.0156 39.9492 37.1016 39.2812 36.4336L37.6758 34.8281C36.9727 34.125 36.0234 33.7266 35.0273 33.7266H27.1875C26.0859 33.1758 24.668 29.9766 23.4375 29.9766C22.207 29.9766 20.9883 29.6836 19.8867 29.1328L18.5859 28.4883C18.1172 28.2539 17.8125 27.7617 17.8125 27.2344C17.8125 26.6367 18.1992 26.0977 18.7734 25.9102L22.4297 24.6914C23.0625 24.4805 23.7539 24.6211 24.2461 25.0547L25.3359 26.0039C25.5117 26.1562 25.7227 26.2383 25.9453 26.2383H26.6016C27.3047 26.2383 27.75 25.5 27.4453 24.8789L25.6172 21.2227C25.4297 20.8594 25.5117 20.4141 25.8047 20.1328L26.9648 19.0078C27.1406 18.832 27.375 18.7383 27.6211 18.7383H28.6758C28.9219 18.7383 29.168 18.6445 29.3438 18.4688L30.2812 17.5312C30.6445 17.168 30.6445 16.5703 30.2812 16.207L29.7305 15.6563C29.3672 15.293 29.3672 14.6953 29.7305 14.332L30.9375 13.125L31.4883 12.5742C32.2148 11.8477 32.2148 10.6523 31.4883 9.92578L28.1719 6.60938C28.4648 6.59766 28.7578 6.5625 29.0625 6.5625C38.2266 6.5625 46.1484 11.8594 50.0039 19.5352L48.4805 20.2969C48.0469 20.5195 47.6719 20.8477 47.4023 21.2461L45.1055 24.6914C44.4727 25.6406 44.4727 26.8711 45.1055 27.8086L47.2148 30.9727C47.6016 31.5586 48.1992 31.9687 48.8672 32.1445L52.2891 33C51.0234 42.8438 43.6289 50.8008 34.0664 52.8867Z"
+                                fill="#D9EEE1" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0">
+                                <rect width="58.125" height="60" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="work-content-text textaligncenter">
+                    4. Share your website with the world
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid real-footer">
+        <div class="grid-view costlayout">
+            <div class="cost-card list-group-item">
+                <h2>$0.00/<span class="minitext">month</span></h2>
+                <h2>Free</h2>
+                <h5>For a new web developers ready to create their first site.</h5>
+                <div class="list py-3">
+                    <div><i class="bi bi-check"></i> Browse with ads</div>
+                    <div><i class="bi bi-check"></i> Build static sites</div>
+                    <div><i class="bi bi-check"></i> 1 spaces</div>
+                    <div><i class="bi bi-check"></i> 100 MB storage</div>
+                    <div><i class="bi bi-check"></i> 75 MB data/month</div>
+                    <div><i class="bi bi-check"></i> 500 requests/month</div>
+                    <div><i class="bi bi-check"></i> myhost.com subdomain</div>
+                    <div><i class="bi bi-check"></i> SSL certificate</div>
+                </div>
+            </div>
+            <div class="cost-card list-group-item">
+                <h2>$4.99/<span class="minitext">month</span></h2>
+                <h2>Basic</h2>
+                <h5>For those runnig one space with more traffic.</h5>
+                <div class="list py-3">
+                    <div><i class="bi bi-check"></i> Browse without ads</div>
+                    <div><i class="bi bi-check"></i> Build static sites</div>
+                    <div><i class="bi bi-check"></i> 1 spaces</div>
+                    <div><i class="bi bi-check"></i> 10 GB storage</div>
+                    <div><i class="bi bi-check"></i> 10 GB data/month</div>
+                    <div><i class="bi bi-check"></i> 10 000 requests/month</div>
+                    <div><i class="bi bi-check"></i> myhost.com subdomain</div>
+                    <div><i class="bi bi-check"></i> SSL certificate</div>
+                </div>
+            </div>
+            <div class="cost-card list-group-item">
+                <h2>$8.99/<span class="minitext">month</span></h2>
+                <h2>Pro</h2>
+                <h5>For those running multiple spaces with more traffic.</h5>
+                <div class="list py-3">
+                    <div><i class="bi bi-check"></i> Browse without ads</div>
+                    <div><i class="bi bi-check"></i> Build static sites</div>
+                    <div><i class="bi bi-check"></i> 10 spaces</div>
+                    <div><i class="bi bi-check"></i> 10 GB storage</div>
+                    <div><i class="bi bi-check"></i> 100 GB data/month</div>
+                    <div><i class="bi bi-check"></i> 100 000 requests/month</div>
+                    <div><i class="bi bi-check"></i> myhost.com subdomain</div>
+                    <div><i class="bi bi-check"></i> SSL certificate</div>
+                </div>
+            </div>
+            <div class="cost-card list-group-item">
+                <h2>$12.99/<span class="minitext">month</span></h2>
+                <h2>Premium</h2>
+                <h5>Build more sites and grow your online presence.</h5>
+                <div class="list py-3">
+                    <div><i class="bi bi-check"></i> Browse without ads</div>
+                    <div><i class="bi bi-check"></i> Build static sites</div>
+                    <div><i class="bi bi-check"></i> 50 spaces</div>
+                    <div><i class="bi bi-check"></i> 50 GB storage</div>
+                    <div><i class="bi bi-check"></i> 500 GB data/month</div>
+                    <div><i class="bi bi-check"></i> 500 000 requests/month</div>
+                    <div><i class="bi bi-check"></i> myhost.com subdomain</div>
+                    <div><i class="bi bi-check"></i> SSL certificate</div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+    <div class="container-fluid bottompart">
+        <p>2000 - 2002 MyHosting All rights reserved. Cookie policy, Privacy and Terms</p=>
+        <p>Reporting abusive content help us keep Spaces safe. Help us by Reporting Abuse if you find</p>
+    </div>
+</body>
+
+</html>
