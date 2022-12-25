@@ -2,7 +2,6 @@
 .table {
     padding: 0px;
     margin: 0px;
-    box-sizing: border-box;
 }
 
 #esogu-logo {
@@ -38,11 +37,11 @@
     font-weight: 700;
 }
 
-.table>row:nth-of-type(odd) {
+.elements>.row:nth-of-type(odd) {
     background-color: white;
 }
 
-.table>row:nth-of-type(even) {
+.elements>.row:nth-of-type(even) {
     background-color: rgb(218, 224, 255);
 }
 
@@ -51,12 +50,13 @@
     margin: .125rem;
 }
 
-.table>row {
+.elements>.row {
     height: 50px;
     padding: 0px 8px;
 }
 
-.table custom-row>.col {
+
+.elements>.row>.col {
     display: flex;
     align-items: center;
     text-align: start;

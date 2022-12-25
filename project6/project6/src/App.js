@@ -1,11 +1,12 @@
 import './App.css';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import CustomNavigation from './custom-elements/custom-navigation';
+import AddUpdateStudent from './model/studentAddUpdate';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
 
 export default function App() {
   return <>
-    <Container fluid>
+    <Container fluid style={{ padding: '10px' }}>
       <Row my="3">
         <Col md="auto">
           <img id="esogu-logo" src="esogu-logo.png" alt="Esogü Logo" />
@@ -21,15 +22,12 @@ export default function App() {
       </Row>
     </Container>
 
-    <Container className="second-bar" fluid>
+    <Container className="second-bar" fluid style={{ padding: '0px 10px' }}>
       <div className="title bold">Öğrenci Listesi</div>
-      <Button variant="primary" data-toggle="modal" data-target="#studentAdd">
-        <BsFillPersonPlusFill />
-      </Button>
-      <add-update-student />
+      <AddUpdateStudent detail={null} tid={null} child={<BsFillPersonPlusFill />} />
     </Container>
 
-    <Container className="text-center table" fluid>
+    <Container className="text-center table" fluid style={{ padding: '0px' }}>
       <Row className="table-header">
         <Col>İsim Soyisim</Col>
         <Col className="number">Öğrenci Numarası</Col>

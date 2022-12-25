@@ -8,7 +8,7 @@
     justify-content: center;
 }
 
-.paginationNumber {
+.paginationNumbers>* {
     text-align: center;
     font-size: 20px;
     background-color: white;
@@ -19,7 +19,7 @@
     border-radius: 4px;
 }
 
-.paginationNumber.active {
+.paginationNumbers .active {
     color: #fff;
     background: #0085b6;
 }
@@ -41,7 +41,7 @@
     color: #0085b6;
 }
 
-.pageCounter>*.active {
+.pageCounter .active {
     background-color: #0085b6;
     color: white;
 }

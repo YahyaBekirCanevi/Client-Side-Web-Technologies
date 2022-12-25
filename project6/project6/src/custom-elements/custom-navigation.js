@@ -63,30 +63,31 @@ export default function CustomNavigation() {
         initialize();
     }, [])
 
-    return <Container fluid>
+    return <Container fluid style={{ padding: '0px' }}>
         <div className='elements'>
-            {state.children.slice(state.bottom, state.top + 1).map((e, idx) => <CustomRow key={idx} data={e} />)}
+            {state.children.slice(state.bottom - 1, state.top).map((e, idx) => <CustomRow key={idx} data={e} />)}
         </div>
         <Row className="table-footer">
             <Col className="pageNumber">
-                <p>
-                    <span className="bold">{state.children.length}</span> öğrenciden
-                    <span className="bold"> {state.bottom}-{state.top}</span> arası gösteriliyor
-                </p>
+                <span className="bold">{state.children.length}</span> öğrenciden
+                <span className="bold"> {state.bottom}-{state.top}</span> arası gösteriliyor
             </Col>
-            <Col className="paginationNumbers">
+            <Col className="paginationNumbers" md="auto">
                 {Array.from({ length: state.pageCount }).map((_, idx) => {
                     return <div key={idx}
-                        className={`paginationNumber ${state.currentPage === idx + 1 ? 'active' : ''}`}
+                        className={`${(state.currentPage === idx + 1) ? 'active' : ''}`}
                         onClick={() => updateIndices({ current: idx + 1 })}>
                         {idx + 1}</div>
                 })}
             </Col>
             <Col className="pageCounter">
                 {[5, 8, 10].map((e, idx) => {
-                    return <div key={idx} onClick={() => updateIndices({ limit: e })}>{e}</div>
+                    return <div key={idx}
+                        className={`${(state.pageLimit === e) ? 'active' : ''}`}
+                        onClick={() => updateIndices({ limit: e })}>
+                        {e}</div>
                 })}
             </Col>
         </Row>
-    </Container>;
+    </Container>
 }
