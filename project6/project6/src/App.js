@@ -1,8 +1,6 @@
 import './App.css';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import CustomNavigation from './custom-elements/custom-navigation';
-import AddUpdateStudent from './model/studentAddUpdate';
-import { BsFillPersonPlusFill } from 'react-icons/bs';
 
 export default function App() {
   return <>
@@ -22,18 +20,7 @@ export default function App() {
       </Row>
     </Container>
 
-    <Container className="second-bar" fluid style={{ padding: '0px 10px' }}>
-      <div className="title bold">Öğrenci Listesi</div>
-      <AddUpdateStudent detail={null} tid={null} child={<BsFillPersonPlusFill />} />
-    </Container>
-
     <Container className="text-center table" fluid style={{ padding: '0px' }}>
-      <Row className="table-header">
-        <Col>İsim Soyisim</Col>
-        <Col className="number">Öğrenci Numarası</Col>
-        <Col className="dept">Bölüm</Col>
-        <Col>Yetkiler</Col>
-      </Row>
       <CustomNavigation />
     </Container>
   </>;

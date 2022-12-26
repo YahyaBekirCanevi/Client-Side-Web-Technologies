@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Row, Col, Button, Modal, Form } from 'react-bootstrap';
+import fetchAsync from '../async/students';
 import "./modal.css"
 
 function FormGroup(props) {
@@ -14,7 +15,7 @@ function FormGroup(props) {
     </Form.Group>
 }
 
-export default function AddUpdateStudent({ detail, tid, child }) {
+export default function AddUpdateStudent({ detail, tid, child, variant = 'primary' }) {
     const [show, setShow] = useState(false)
     const [newId, setNewId] = useState("")
     const [title, setTitle] = useState("")
@@ -40,7 +41,38 @@ export default function AddUpdateStudent({ detail, tid, child }) {
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors)
         } else {
-            /// action
+            const { ogrNo, isim, soyisim, dep, dogumTarihi, dogumYeri } = form
+            if (tid === -1 || tid === null) {
+                console.log('New Student')
+                let data = {
+                    "fname": isim,
+                    "lname": soyisim,
+                    "num": ogrNo,
+                    "dept": dep,
+                    "pob": dogumYeri,
+                    "dob": dogumTarihi
+                }
+                fetchAsync('http://localhost:8000/students', 'POST', data)
+                    .then((response) => {
+                        console.log('New Student', response.status)
+                    })
+            } else {
+                console.log('Update Student')
+                let data = {
+                    "id": tid,
+                    "fname": isim,
+                    "lname": soyisim,
+                    "num": ogrNo,
+                    "dept": dep,
+                    "pob": dogumYeri,
+                    "dob": dogumTarihi
+                }
+                fetchAsync('http://localhost:8000/students/' + tid, 'PUT', data)
+                    .then((response) => {
+                        console.log('Update Student', response.status)
+                    })
+            }
+            setShow(false)
         }
     }
 
@@ -69,10 +101,10 @@ export default function AddUpdateStudent({ detail, tid, child }) {
     }
 
     useEffect(() => {
-        if (detail !== null && tid !== null) {
+        if (detail !== null && detail && tid !== null && tid !== -1) {
             setNewId("studentDetail-" + tid)
             setTitle("Öğrenci Detay Bilgileri")
-        } else if (tid !== null) {
+        } else if (tid !== null && tid !== -1) {
             setNewId("studentUpdate-" + tid)
             setTitle("Güncellenecek Öğrenci Bilgileri")
             setButtonName("Güncelle")
@@ -84,7 +116,7 @@ export default function AddUpdateStudent({ detail, tid, child }) {
     }, [])
 
     return <>
-        <Button variant="primary" data-toggle="modal" data-target={"#" + { newId }} onClick={() => setShow(true)}>
+        <Button variant={variant} data-target={"#" + { newId }} onClick={() => setShow(true)}>
             {child}
         </Button>
         <Modal show={show} onHide={() => setShow(false)} id={newId}>
@@ -115,13 +147,12 @@ export default function AddUpdateStudent({ detail, tid, child }) {
                             <Form.Control
                                 as='Select'
                                 onChange={e => setField('dep', e.target.value)}
-                                isInvalid={!!errors.dep}
-                            >
+                                isInvalid={!!errors.dep}>
                                 <option value=''>Bölüm Seçiniz</option>
-                                <option value='bm'>Bilgisayar Müh.</option>
-                                <option value='eem'>Elektrik-Elektronik Müh.</option>
-                                <option value='em'>Endüstri Müh.</option>
-                                <option value='im'>İnşaat Müh.</option>
+                                <option value='1'>Bilgisayar Müh.</option>
+                                <option value='2'>Elektrik-Elektronik Müh.</option>
+                                <option value='3'>Endüstri Müh.</option>
+                                <option value='4'>İnşaat Müh.</option>
                             </Form.Control>
                             <Form.Control.Feedback type='invalid'>{errors.dep}</Form.Control.Feedback>
                         </Form.Group>

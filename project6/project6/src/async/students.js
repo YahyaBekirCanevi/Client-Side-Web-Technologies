@@ -1,4 +1,4 @@
-export async function fetchAsync(url, method, data) {
+export default async function fetchAsync(url, method, data) {
     let response = await fetch(url, {
         method: method,
         headers: {

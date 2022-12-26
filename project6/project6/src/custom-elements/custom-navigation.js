@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, Container } from 'react-bootstrap';
-import { fetchAsync } from '../async/students'
+import { Row, Col, Container, Form, Button } from 'react-bootstrap';
+import AddUpdateStudent from '../model/studentAddUpdate';
+import fetchAsync from '../async/students'
 import CustomRow from './custom-row';
+import { BsFillPersonPlusFill } from 'react-icons/bs';
 import './custom-navigation.css'
 
 export default function CustomNavigation() {
+    const [view, setView] = useState("row");
     const [state, setState] = useState({
         children: [],
         currentPage: 1,
@@ -61,12 +64,34 @@ export default function CustomNavigation() {
             updateIndices({ list: list })
         }
         initialize();
-    }, [])
+    }, [state.children.length])
 
     return <Container fluid style={{ padding: '0px' }}>
+        <Container className="second-bar" fluid style={{ padding: '0px 10px' }}>
+            <div className="title bold">Öğrenci Listesi</div>
+            <Button type="button" variant='primary' onClick={() => setView(view === "card" ? "row" : "card")}>
+                <p style={{ display: "inline", paddingLeft: '8px' }}>Table View</p>
+                <Form.Check
+                    inline
+                    type="switch"
+                    id="custom-switch"
+                    value={view === "card"}
+                />
+            </Button>
+            <AddUpdateStudent variant='primary' detail={null} tid={-1} child={<BsFillPersonPlusFill />} />
+        </Container>
+
+        {view === "card" ? <></> : <Row className="table-header">
+            <Col>İsim Soyisim</Col>
+            <Col className="number">Öğrenci Numarası</Col>
+            <Col className="dept">Bölüm</Col>
+            <Col>Yetkiler</Col>
+        </Row>}
+
         <div className='elements'>
-            {state.children.slice(state.bottom - 1, state.top).map((e, idx) => <CustomRow key={idx} data={e} />)}
+            {state.children.slice(state.bottom - 1, state.top).map((e, idx) => <CustomRow view={view} key={idx} data={e} />)}
         </div>
+
         <Row className="table-footer">
             <Col className="pageNumber">
                 <span className="bold">{state.children.length}</span> öğrenciden
