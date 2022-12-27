@@ -1,44 +1,8 @@
 {
   "students": [
     {
-      "id": 4,
-      "fname": "Isim4",
-      "lname": "Soyisim4",
-      "num": "152120171104",
-      "dept": 4,
-      "pob": "İzmir",
-      "dob": "1998-06-16"
-    },
-    {
-      "id": 6,
-      "fname": "Isim6",
-      "lname": "Soyisim6",
-      "num": "152120171106",
-      "dept": 2,
-      "pob": "Kars",
-      "dob": "1999-09-19"
-    },
-    {
-      "id": 7,
-      "fname": "Isim7",
-      "lname": "Soyisim7",
-      "num": "152120171107",
-      "dept": 3,
-      "pob": "Mardin",
-      "dob": "2000-10-03"
-    },
-    {
-      "id": 8,
-      "fname": "Isim8",
-      "lname": "Soyisim8",
-      "num": "152120171108",
-      "dept": 4,
-      "pob": "Antalya",
-      "dob": "1995-12-25"
-    },
-    {
       "id": 9,
-      "fname": "Isim9",
+      "fname": "Isim99",
       "lname": "Soyisim9",
       "num": "152120171109",
       "dept": 1,
@@ -190,24 +154,6 @@
       "dob": "2000-07-17"
     },
     {
-      "fname": "yayaya",
-      "lname": "tatata",
-      "num": "123123123123",
-      "dept": 1,
-      "pob": "alaman",
-      "dob": "2022-12-06",
-      "id": 26
-    },
-    {
-      "fname": "ayax",
-      "lname": "ajax",
-      "num": "123123443212",
-      "dept": "2",
-      "pob": "fdsafdsa",
-      "dob": "2022-12-08",
-      "id": 34
-    },
-    {
       "id": 35,
       "fname": "fathi",
       "lname": "tevesli",
@@ -217,22 +163,13 @@
       "dob": "2022-11-30"
     },
     {
-      "fname": "sadfsfdsaf",
-      "lname": "fdasfdsafdsa",
-      "num": "232132123123",
+      "fname": "eheh",
+      "lname": "hehehe",
+      "num": "434343434343",
       "dept": "3",
-      "pob": "asfgsddfsgfd",
-      "dob": "2022-12-15",
+      "pob": "ahaha",
+      "dob": "2023-01-06",
       "id": 36
-    },
-    {
-      "fname": "aaaaaaaaaaaa",
-      "lname": "dsadsda",
-      "num": "432432432432",
-      "dept": "4",
-      "pob": "fdsa",
-      "dob": "2022-12-03",
-      "id": 37
     }
   ]
 }

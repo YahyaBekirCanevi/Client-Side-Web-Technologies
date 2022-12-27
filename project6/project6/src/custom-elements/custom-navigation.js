@@ -7,17 +7,17 @@ import { BsFillPersonPlusFill } from 'react-icons/bs';
 import './custom-navigation.css'
 
 export default function CustomNavigation() {
-    const [view, setView] = useState("row");
     const [state, setState] = useState({
         children: [],
         currentPage: 1,
         pageLimit: 10,
         pageCount: 1,
         bottom: 0,
-        top: 0
+        top: 0,
+        view: "row"
     });
 
-    const updateIndices = ({ list, limit, current }) => {
+    const updateIndices = ({ list, limit, current, view }) => {
         let _list = list === undefined ? state.children : list
         let _limit = limit === undefined ? state.pageLimit : limit
         let _currentPage = current === undefined ? state.currentPage : current
@@ -38,50 +38,53 @@ export default function CustomNavigation() {
             pageLimit: _limit,
             pageCount: _pageCount,
             currentPage: _currentPage,
+            view: view ?? state.view,
         }))
     }
-
+    async function initialize() {
+        let list = []
+        await fetchAsync('http://localhost:8000/students', 'GET', null)
+            .then(async (response) => {
+                let res = await response.json()
+                res.map(el => {
+                    let data = {
+                        "tid": el.id,
+                        "firstname": el.fname,
+                        "lastname": el.lname,
+                        "number": el.num,
+                        "departmant": el.dept,
+                        "placeOfBirth": el.pob,
+                        "dateOfBirth": el.dob,
+                    }
+                    list = [...list, data]
+                })
+            })
+        updateIndices({ list: list })
+    }
+    function onSwitch() {
+        updateIndices({ view: state.view === "card" ? "row" : "card" })
+    }
 
     useEffect(() => {
-        async function initialize() {
-            let list = []
-            await fetchAsync('http://localhost:8000/students', 'GET', null)
-                .then(async (response) => {
-                    let res = await response.json()
-                    res.map(el => {
-                        let data = {
-                            "tid": el.id,
-                            "firstname": el.fname,
-                            "lastname": el.lname,
-                            "number": el.num,
-                            "departmant": el.dept,
-                            "placeOfBirth": el.pob,
-                            "dateOfBirth": el.dob,
-                        }
-                        list = [...list, data]
-                    })
-                })
-            updateIndices({ list: list })
-        }
         initialize();
     }, [state.children.length])
 
     return <Container fluid style={{ padding: '0px' }}>
-        <Container className="second-bar" fluid style={{ padding: '0px 10px' }}>
-            <div className="title bold">Öğrenci Listesi</div>
-            <Button type="button" variant='primary' onClick={() => setView(view === "card" ? "row" : "card")}>
-                <p style={{ display: "inline", paddingLeft: '8px' }}>Table View</p>
-                <Form.Check
-                    inline
-                    type="switch"
+        <Row mx='2'>
+            <Col className="bold" style={{ textAlign: "start", fontSize: "20px", paddingLeft: '12px' }}>Öğrenci Listesi</Col>
+            <Col md="auto">
+                <Button variant='primary' type='button'><Form.Switch
+                    reverse
                     id="custom-switch"
-                    value={view === "card"}
-                />
-            </Button>
-            <AddUpdateStudent variant='primary' detail={null} tid={-1} child={<BsFillPersonPlusFill />} />
-        </Container>
+                    label="Table View"
+                    onClick={onSwitch}
+                    value={state.view === "card"}
+                /></Button>
+                <AddUpdateStudent variant='primary' detail={null} tid={-1} child={<BsFillPersonPlusFill />} onSubmit={initialize} />
+            </Col>
+        </Row>
 
-        {view === "card" ? <></> : <Row className="table-header">
+        {state.view === "card" ? <></> : <Row className="table-header">
             <Col>İsim Soyisim</Col>
             <Col className="number">Öğrenci Numarası</Col>
             <Col className="dept">Bölüm</Col>
@@ -89,7 +92,7 @@ export default function CustomNavigation() {
         </Row>}
 
         <div className='elements'>
-            {state.children.slice(state.bottom - 1, state.top).map((e, idx) => <CustomRow view={view} key={idx} data={e} />)}
+            {state.children.slice(state.bottom - 1, state.top).map((e, idx) => <CustomRow view={state.view} key={idx} data={e} onSubmit={initialize} />)}
         </div>
 
         <Row className="table-footer">
@@ -114,5 +117,5 @@ export default function CustomNavigation() {
                 })}
             </Col>
         </Row>
-    </Container>
+    </Container >
 }
