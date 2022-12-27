@@ -8,6 +8,7 @@ function FormGroup(props) {
         <Form.Label>{props.label}</Form.Label>
         <Form.Control
             type={props.type}
+            disabled={props.disabled}
             onChange={e => props.onChange(e)}
             isInvalid={props.error}
             value={props.value}
@@ -18,7 +19,6 @@ function FormGroup(props) {
 
 export default function AddUpdateStudent({ detail, tid, child, variant = 'primary', onSubmit }) {
     const [show, setShow] = useState(false)
-    const [newId, setNewId] = useState("")
     const [title, setTitle] = useState("")
     const [buttonName, setButtonName] = useState("")
     const [form, setForm] = useState({})
@@ -110,22 +110,19 @@ export default function AddUpdateStudent({ detail, tid, child, variant = 'primar
 
     useEffect(() => {
         if (detail !== null && detail && tid !== null && tid !== -1) {
-            setNewId("studentDetail-" + tid)
             setTitle("Öğrenci Detay Bilgileri")
         } else if (tid !== null && tid !== -1) {
-            setNewId("studentUpdate-" + tid)
             setTitle("Güncellenecek Öğrenci Bilgileri")
             setButtonName("Güncelle")
         } else {
-            setNewId("studentAdd")
             setTitle("Eklenecek Öğrenci Bilgileri")
             setButtonName("Ekle")
         }
-    }, [])
+    }, [detail, tid])
 
     return <>
         <Button variant={variant} onClick={init}>{child}</Button>
-        <Modal show={show} onHide={() => setShow(false)} id={newId}>
+        <Modal show={show} onHide={() => setShow(false)}>
             <Modal.Header closeButton>
                 <Modal.Title>{title}</Modal.Title>
             </Modal.Header>
@@ -133,11 +130,13 @@ export default function AddUpdateStudent({ detail, tid, child, variant = 'primar
                 <Form className="needs-validation" noValidate>
                     <Row>
                         <FormGroup type="text"
+                            disabled={buttonName === ""}
                             label="İsim"
                             error={errors.fname}
                             value={form.fname}
                             onChange={e => setField('fname', e.target.value)} />
                         <FormGroup type="text"
+                            disabled={buttonName === ""}
                             label="Soyisim"
                             error={errors.lname}
                             value={form.lname}
@@ -146,6 +145,7 @@ export default function AddUpdateStudent({ detail, tid, child, variant = 'primar
 
                     <Row>
                         <FormGroup type="number"
+                            disabled={buttonName === ""}
                             label="Öğrenci Numarası"
                             error={errors.num}
                             value={form.num}
@@ -154,6 +154,7 @@ export default function AddUpdateStudent({ detail, tid, child, variant = 'primar
                         <Form.Group as={Col} md="6">
                             <Form.Label>Bölüm</Form.Label>
                             <Form.Control
+                                disabled={buttonName === ""}
                                 as={Form.Select}
                                 value={form.dept}
                                 onChange={e => setField('dept', e.target.value)}
@@ -170,11 +171,13 @@ export default function AddUpdateStudent({ detail, tid, child, variant = 'primar
 
                     <Row>
                         <FormGroup type="text"
+                            disabled={buttonName === ""}
                             label="Doğum Yeri"
                             error={errors.pob}
                             value={form.pob}
                             onChange={e => setField('pob', e.target.value)} />
                         <FormGroup type="date"
+                            disabled={buttonName === ""}
                             label="Doğum Tarihi"
                             error={errors.dob}
                             value={form.dob}

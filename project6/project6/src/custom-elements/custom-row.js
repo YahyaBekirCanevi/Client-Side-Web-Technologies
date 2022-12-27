@@ -24,16 +24,14 @@ export default function CustomRow({ data, view, onSubmit }) {
 
     return view === "card" ?
         <Card className='customcard'>
-            <Col>
-                <p className='bold'>{data.firstname} {data.lastname}</p>
-                <p className='number'>{data.number}</p>
-                <p className='dept'>{depts[data.departmant]}</p>
-                <Row xs="auto">
-                    <Col>{deleteButton}</Col>
-                    <Col>{updateButton}</Col>
-                    <Col>{detailButton}</Col>
-                </Row>
-            </Col>
+            <p className='bold'>{data.firstname} {data.lastname}</p>
+            <p className='number'>{data.number}</p>
+            <p className='dept'>{depts[data.departmant]}</p>
+            <Row xs="auto">
+                <Col>{deleteButton}</Col>
+                <Col>{updateButton}</Col>
+                <Col>{detailButton}</Col>
+            </Row>
         </Card> :
         <Row>
             <Col>{data.firstname} {data.lastname}</Col>

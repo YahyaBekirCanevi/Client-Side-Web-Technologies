@@ -76,7 +76,7 @@ export default function CustomNavigation() {
                 <Button variant='primary' type='button'><Form.Switch
                     reverse
                     id="custom-switch"
-                    label="Table View"
+                    label={state.view === "card" ? "Card View" : "Table View"}
                     onClick={onSwitch}
                     value={state.view === "card"}
                 /></Button>
